@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+import sys
+
+file = open("test00", "r")
+
+
+for line in file:
+    number = int(line)
+    i = 2
+    while (number):
+        if number % i == 0:
+            print("{}={}*{}".format(number, number // i, i))
+            break
+        i += 1
+    
+
+file.close()
