@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 import sys
+import ctypes
 
-
-def factorize(number):
-    for i in range(2, number):
-        if number % i == 0:
-            return i
-    return None
-
+fun = ctypes.CDLL("./libfactor.so")
+factorize = fun.factorize
+factorize.argtypes = [ctypes.c_int]
+factorize.restype = ctypes.c_int
 
 if len(sys.argv) != 2:
     print("Usage: factors <file>")
